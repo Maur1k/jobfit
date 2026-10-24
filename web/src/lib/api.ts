@@ -1,10 +1,20 @@
 const BASE = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
 
-export async function testKey(key: string): Promise<{ ok: boolean; message?: string }> {
-  const r = await fetch(`${BASE}/api/key/test`, { method: "POST", headers: { "X-Gemini-Key": key } });
+export interface KeyTestResult {
+  ok: boolean;
+  code?: string;
+}
+
+export async function testKey(key: string): Promise<KeyTestResult> {
+  let r: Response;
+  try {
+    r = await fetch(`${BASE}/api/key/test`, { method: "POST", headers: { "X-Gemini-Key": key } });
+  } catch {
+    return { ok: false, code: "network" };
+  }
   if (r.ok) return { ok: true };
   const body = await r.json().catch(() => null);
-  return { ok: false, message: body?.detail?.message ?? "Something went wrong. Try again." };
+  return { ok: false, code: typeof body?.detail?.code === "string" ? body.detail.code : undefined };
 }
 
 export async function parseResume(file: File): Promise<string> {
