@@ -1,0 +1,21 @@
+# secrets — never commit these
+.env
+.env.*
+!.env.example
+
+# node
+node_modules/
+web/dist/
+audit-*.json
+*.tsbuildinfo
+# python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+# vercel
+.vercel/
+# os / editor
+.DS_Store
+.idea/
+.vscode/
