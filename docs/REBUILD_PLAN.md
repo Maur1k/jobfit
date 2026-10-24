@@ -230,9 +230,9 @@ The frontend's domain is set in Vercel. Once it is live and verified, `pagawa-re
 
 | # | Milestone | Done when | Status |
 |---|---|---|---|
-| 1 | Repository, CI, license, README skeleton, API and web starters | CI builds and tests pass | Verified locally; API tests and web tests/build pass |
-| 2 | Master Resume editor with local saving, validation, and live preview | Create, edit, reload, and print a resume | Verified locally; profile persistence, preview, and print flow checked |
-| 3 | Resume upload and parsing (PDF, DOCX) | Parsed text matches test files | Implemented; parser fixtures, API tests, and browser upload review checked |
+| 1 | Repository, CI, license, README skeleton, API and web starters | CI builds and tests pass | Complete (verified locally; CI pending) |
+| 2 | Master Resume editor with local saving, validation, and live preview | Create, edit, reload, and print a resume | Complete (verified locally; CI pending) |
+| 3 | Resume upload and parsing (PDF, DOCX) | Parsed text matches test files | Complete (verified locally; CI pending) |
 | 4 | Key onboarding wizard with screenshots, key test, error states | Every error state shows the right message | Planned |
 | 5 | Tailoring with evidence links and validation | Output validates; no invented content in tests | Planned |
 | 6 | Print-ready tailored resume | Print to PDF looks clean on A4 | Planned |
@@ -241,12 +241,6 @@ The frontend's domain is set in Vercel. Once it is live and verified, `pagawa-re
 | 9 | Deployment and domain change | Live over HTTPS on the chosen domain | Planned |
 
 **Later:** AI interview and technical-interview modules, built on the same API and data model. Each will need its own design pass covering question generation, answer scoring, and how feedback is shown.
-
-## Implementation notes
-
-- Parser code now lives in `api/app/services/parsers.py`, with the upload route in `api/app/routers/resume.py`; content signatures still determine PDF/DOCX handling.
-- Milestone 3 stores confirmed extracted text in `MasterResume.rawText`; older IndexedDB records are normalized with an empty value.
-- The development requirements include `uvicorn` so the documented local FastAPI check can run.
 
 ## 10. Testing and quality
 
@@ -284,3 +278,9 @@ The frontend's domain is set in Vercel. Once it is live and verified, `pagawa-re
 - **Tailored resume:** A version of the Master Resume selected and reworded for one job description, with evidence links.
 - **Stateless API:** A server that keeps nothing between requests.
 - **IndexedDB:** The browser's built-in database, used here to store data on the user's device.
+
+## Implementation notes
+
+- Repository: https://github.com/Maur1k/jobfit
+- Dependency audit: six npm development findings and Python findings were deferred; production npm dependencies had no findings. See [SECURITY.md](SECURITY.md).
+- Milestone 3 baseline issues fixed: added Vite `ImportMeta.env` typings and added `uvicorn` to development requirements.
