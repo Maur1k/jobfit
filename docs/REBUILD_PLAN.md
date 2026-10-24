@@ -233,7 +233,7 @@ The frontend's domain is set in Vercel. Once it is live and verified, `pagawa-re
 | 1 | Repository, CI, license, README skeleton, API and web starters | CI builds and tests pass | Complete (verified locally; CI pending) |
 | 2 | Master Resume editor with local saving, validation, and live preview | Create, edit, reload, and print a resume | Complete (verified locally; CI pending) |
 | 3 | Resume upload and parsing (PDF, DOCX) | Parsed text matches test files | Complete (verified locally; CI pending) |
-| 4 | Key onboarding wizard with screenshots, key test, error states | Every error state shows the right message | Planned |
+| 4 | Key onboarding wizard with screenshots, key test, error states | Every error state shows the right message | Complete (code verified locally; screenshot capture pending) |
 | 5 | Tailoring with evidence links and validation | Output validates; no invented content in tests | Planned |
 | 6 | Print-ready tailored resume | Print to PDF looks clean on A4 | Planned |
 | 7 | Applications tracker with status editing | Status changes persist after reload | Planned |
@@ -284,3 +284,4 @@ The frontend's domain is set in Vercel. Once it is live and verified, `pagawa-re
 - Repository: https://github.com/Maur1k/jobfit
 - Dependency audit: six npm development findings and Python findings were deferred; production npm dependencies had no findings. See [SECURITY.md](SECURITY.md).
 - Milestone 3 baseline issues fixed: added Vite `ImportMeta.env` typings and added `uvicorn` to development requirements.
+- Milestone 4 code is complete and screenshot capture remains pending; see [SCREENSHOTS.md](SCREENSHOTS.md) for the capture checklist.
